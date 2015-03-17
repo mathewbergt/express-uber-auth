@@ -1,0 +1,14 @@
+{
+  "name": "uber-auth",
+  "version": "1.0.0",
+  "description": "A simple app to obtain a Uber API access bearer token.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mathew Bergt",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.2"
+  }
+}
