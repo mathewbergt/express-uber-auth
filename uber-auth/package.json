@@ -17,7 +17,7 @@
     "morgan": "~1.5.1",
     "passport": "^0.2.1",
     "passport-local": "^1.0.0",
-    "passport-uber": "0.0.1",
+    "passport-oauth2": "^1.1.2",
     "serve-favicon": "~2.2.0"
   }
 }
