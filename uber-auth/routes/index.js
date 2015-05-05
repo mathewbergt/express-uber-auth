@@ -13,10 +13,11 @@ router.post('/auth/init', function (req, res, next) {
 
 	passport.use(new OAuth2Strategy({
 			authorizationURL: 'https://login.uber.com/oauth/authorize',
-	    tokenURL: 'https://login.uber.com/oauth/token',
-	    clientID: req.body.client_id,
-	    clientSecret: 'TrYjG6u07PKGKQt5Y4mM5qjPOee07fj4J9MBS3lb', // client secret kept server side only
-	    callbackURL: 'https://localhost:8080/auth/callback'
+		    tokenURL: 'https://login.uber.com/oauth/token',
+		    clientID: req.body.client_id,
+		    clientSecret: 'hdCW7wYbwjccpfOvbV_mrAJhGnX6mPHNK-7gPumN', // client secret kept server side only
+		    callbackURL: 'https://localhost:8080/auth/callback',
+		    scope: 'request history_lite history profile request_receipt'
 		},
 		function(accessToken, refreshToken, profile, done) {
 			User.findOrCreate(profile, function (err, user) {
@@ -32,7 +33,7 @@ router.post('/auth/init', function (req, res, next) {
 
 router.get('/auth/doauth', passport.authenticate('oauth2'));
 
-router.get('/auth/callback', 
+router.get('/auth/callback',
   passport.authenticate('oauth2', { failureRedirect: '/?errMsg=Authentication Error' }),
   function(req, res) {
     // Successful authentication, redirect home.
